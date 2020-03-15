@@ -1,0 +1,28 @@
+#cPanel {
+	padding-top: 50px;
+	padding-left: 10px;
+	padding-right: 10px;
+}
+
+#inputTwo,
+#inputThree,
+#inputFour,
+#inputFive {
+	margin-bottom: 15px;
+}
+
+#inputThree {
+}
+
+#slideBar {
+	width: 200px;
+}
+
+.ctrlPnl {
+	margin-bottom: 15px;
+}
+
+#inputFive {
+	background-color: teal;
+	color: lightgray;
+}
