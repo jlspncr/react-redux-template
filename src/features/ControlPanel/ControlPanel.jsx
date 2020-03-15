@@ -41,6 +41,7 @@ export default function ControlPanel() {
 					id='inputOne'
 					options={["Option #1", "Option #2"]}
 					title='Select'
+					label='Select'
 					// index={0}
 				/>
 				{/* Text Field */}
@@ -51,7 +52,7 @@ export default function ControlPanel() {
 				<FormControlLabel
 					id='inputThree'
 					control={<Checkbox checked={cBox} onChange={toggleCheck} />}
-					label='Secondary'
+					label='Checkbox'
 				/>
 				{/* Slider */}
 				<div id='inputFour'>

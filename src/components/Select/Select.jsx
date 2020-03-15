@@ -9,9 +9,19 @@ import {
 import React from "react";
 import { useDispatch } from "react-redux";
 import { setOption } from "../../features/ControlPanel/ControlPanelSlice";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+	drop: {
+		width: 200,
+		marginBottom: 20,
+		marginTop: 20
+	}
+});
 
 const Select = ({ label, options, value }) => {
 	const dispatch = useDispatch();
+	const classes = useStyles();
 
 	// Hooks
 	const [selected, setSelected] = React.useState(value);
@@ -23,7 +33,7 @@ const Select = ({ label, options, value }) => {
 	};
 
 	return (
-		<FormControl id='drop'>
+		<FormControl className={classes.drop}>
 			<InputLabel id='dropdown'>{label}</InputLabel>
 			<SelectMaterial
 				labelId='dropdown'

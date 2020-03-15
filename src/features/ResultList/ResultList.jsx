@@ -8,11 +8,11 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
 	resultContainer: {
-		height: 290
+		height: 350
 	},
 	list: {
 		justifyContent: "left",
-		maxHeight: 260,
+		maxHeight: 330,
 		overflow: "auto",
 		border: 0,
 		fontSize: 14

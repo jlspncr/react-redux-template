@@ -2,7 +2,7 @@ import { createSlice, combineReducers } from "@reduxjs/toolkit";
 
 const initialState = {
 	result: [],
-	option: ["Option #1", "Option #2"],
+	option: [],
 	text: "",
 	checkbox: false,
 	slideSet: 1
@@ -13,7 +13,7 @@ const ControlPanelSlice = createSlice({
 	initialState: initialState,
 	reducers: {
 		setOption(state, action) {
-			const newOpt = action.payload;
+			const { index, newOpt } = action.payload;
 			const panel = state;
 			if (panel.option) {
 				panel.option = newOpt;
@@ -22,7 +22,7 @@ const ControlPanelSlice = createSlice({
 
 		// setText
 		setText(state, action) {
-			const newText = action.payload;
+			const { index, newText } = action.payload;
 			const panel = state;
 			if (panel) {
 				panel.text = newText;

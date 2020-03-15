@@ -4,11 +4,17 @@
 	padding-right: 10px;
 }
 
+#inputOne,
 #inputTwo,
 #inputThree,
 #inputFour,
 #inputFive {
-	margin-bottom: 15px;
+	margin-bottom: 20px;
+}
+
+#inputOne {
+	min-width: 200px;
+	width: 200px;
 }
 
 #inputThree {
