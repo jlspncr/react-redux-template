@@ -16,12 +16,13 @@ import "../../assets/stylesheets/ControlPanel.css";
 
 export default function ControlPanel() {
 	const [cBox, setChecked] = React.useState(false);
-	const settings = useSelector(state => state.control);
+	const settings = useSelector(state => state.controls);
 	const dispatch = useDispatch();
 
 	//#region ----- HANDLERS -----
 	const toggleCheck = event => {
 		setChecked(event.target.checked);
+		console.log(settings);
 	};
 
 	const textChange = event => {
@@ -39,10 +40,11 @@ export default function ControlPanel() {
 				{/* Select */}
 				<Select
 					id='inputOne'
-					options={["Option #1", "Option #2"]}
+					options={settings[0].option}
 					title='Select'
 					label='Select'
-					// index={0}
+					value={settings[0].optVal}
+					index={0}
 				/>
 				{/* Text Field */}
 				<form id='inputTwo'>

@@ -19,7 +19,7 @@ const useStyles = makeStyles({
 	}
 });
 
-const Select = ({ label, options, value }) => {
+const Select = ({ label, options, value, index }) => {
 	const dispatch = useDispatch();
 	const classes = useStyles();
 
@@ -28,8 +28,7 @@ const Select = ({ label, options, value }) => {
 
 	const handleChange = event => {
 		setSelected(event.target.value);
-		console.log(event.target.value);
-		dispatch(setOption({ newOpt: event.target.value }));
+		dispatch(setOption({ index: index, newOpt: event.target.value }));
 	};
 
 	return (
