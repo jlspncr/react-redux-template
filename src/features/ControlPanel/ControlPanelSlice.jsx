@@ -2,7 +2,7 @@ import { createSlice, combineReducers } from "@reduxjs/toolkit";
 
 const initialState = [
 	{
-		result: [],
+		resDisplay: {},
 		option: ["Option #1", "Option #2", "Option #3"],
 		optVal: "Option #1",
 		text: "",
@@ -52,7 +52,17 @@ const ControlPanelSlice = createSlice({
 
 		// pubClick
 		pubClick(state, action) {
-			//
+			const { index } = action.payload;
+			const panel = state[index];
+			if (panel) {
+				panel.resDisplay = {
+					Select: panel.optVal,
+					Text: panel.text,
+					Checkbox: panel.checkbox,
+					Slider: panel.slideSet
+				};
+				console.log(panel.resDisplay);
+			}
 		}
 	}
 });

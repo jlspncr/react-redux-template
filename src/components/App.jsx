@@ -4,7 +4,8 @@ import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
-import Paper from "@material-ui/core/Paper";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/core/Menu";
 
 import ControlPanel from "../features/ControlPanel/ControlPanel.jsx";
 import ResultList from "../features/ResultList/ResultList.jsx";
@@ -17,6 +18,14 @@ const App = () => {
 			<div>
 				<AppBar id='titleBar'>
 					<Toolbar>
+						{/* <IconButton
+							edge='start'
+							// className={classes.menuButton}
+							color='inherit'
+							aria-label='menu'
+						>
+							<MenuIcon />
+						</IconButton> */}
 						<Typography variant='h6'>
 							Welcome To The React-Redux Template
 						</Typography>
@@ -29,10 +38,7 @@ const App = () => {
 					<ControlPanel index={0} />
 				</Grid>
 				<Grid item xs={6}>
-					{/* <Paper> */}
-					{/* <h4>Result List</h4> */}
-					{/* </Paper> */}
-					<ResultList />
+					<ResultList index={0} />
 				</Grid>
 
 				{/* Result List Sample */}

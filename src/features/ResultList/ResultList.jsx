@@ -1,4 +1,5 @@
 import React from "react";
+import { useSelector } from "react-redux";
 import Paper from "@material-ui/core/Paper";
 import ListSubheader from "@material-ui/core/ListSubheader";
 import List from "@material-ui/core/List";
@@ -19,9 +20,21 @@ const useStyles = makeStyles({
 	}
 });
 
-export default function ResultList() {
+export default function ResultList({ index }) {
+	const settings = useSelector(store => store.controls[index]);
 	// functions
 	const classes = useStyles();
+
+	const checkVal = () => {
+		var value = "False";
+		if (settings.resDisplay.checked === true) {
+			value = "True";
+		} else if (settings.resDisplay.checked === false) {
+			value = "False";
+		}
+
+		return value;
+	};
 
 	return (
 		<div>
@@ -32,8 +45,13 @@ export default function ResultList() {
 					aria-labelledby='list-subheader'
 					subheader={<ListSubheader>Results</ListSubheader>}
 				>
-					<ListItem>A</ListItem>
-					<ListItem>B</ListItem>
+					{/* {mapResult} */}
+					<ListItem>Selected: {settings.resDisplay.Select}</ListItem>
+					<ListItem>Text: {settings.resDisplay.Text}</ListItem>
+					<ListItem>
+						Checkbox: {JSON.stringify(settings.resDisplay.Checkbox)}
+					</ListItem>
+					<ListItem>Slider: {settings.resDisplay.Slider}</ListItem>
 				</List>
 			</Paper>
 		</div>

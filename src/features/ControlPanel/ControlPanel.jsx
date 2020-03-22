@@ -11,7 +11,8 @@ import Button from "@material-ui/core/Button";
 import {
 	setText,
 	toggleSelected,
-	setSlider
+	setSlider,
+	pubClick
 } from "../ControlPanel/ControlPanelSlice";
 
 import Select from "../../components/Select/Select";
@@ -39,6 +40,10 @@ export default function ControlPanel({ index }) {
 	const slideChange = (event, newValue) => {
 		setNum(newValue);
 		dispatch(setSlider({ index: index, selected: newValue }));
+	};
+
+	const uploadClicked = event => {
+		dispatch(pubClick({ index: index }));
 	};
 	//#endregion
 
@@ -86,7 +91,7 @@ export default function ControlPanel({ index }) {
 
 				{/* Simple Publish Button */}
 				<div>
-					<Button id='inputFive' variant='contained'>
+					<Button id='inputFive' variant='contained' onClick={uploadClicked}>
 						Publish
 					</Button>
 				</div>
