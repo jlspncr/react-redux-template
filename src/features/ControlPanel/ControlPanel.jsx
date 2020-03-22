@@ -7,16 +7,13 @@ import Checkbox from "@material-ui/core/Checkbox";
 import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import Button from "@material-ui/core/Button";
-
 import {
 	setText,
 	toggleSelected,
 	setSlider,
 	pubClick
 } from "../ControlPanel/ControlPanelSlice";
-
 import Select from "../../components/Select/Select";
-
 import "../../assets/stylesheets/ControlPanel.css";
 
 export default function ControlPanel({ index }) {
@@ -63,16 +60,23 @@ export default function ControlPanel({ index }) {
 					value={settings.optVal}
 					index={0}
 				/>
+
 				{/* Text Field */}
 				<form id='inputTwo'>
-					<Textfield label='Text Input' onChange={textChange} />
+					<Textfield
+						label='Text Input'
+						onChange={textChange}
+						value={settings.text}
+					/>
 				</form>
+
 				{/* Checkbox */}
 				<FormControlLabel
 					id='inputThree'
 					control={<Checkbox checked={cBox} onChange={toggleCheck} />}
 					label='Checkbox'
 				/>
+
 				{/* Slider */}
 				<div id='inputFour'>
 					<Typography>Slider</Typography>

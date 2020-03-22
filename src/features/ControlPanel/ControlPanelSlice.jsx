@@ -5,7 +5,7 @@ const initialState = [
 		resDisplay: {},
 		option: ["Option #1", "Option #2", "Option #3"],
 		optVal: "Option #1",
-		text: "",
+		text: "Hello There",
 		checkbox: false,
 		slideSet: 1
 	}
@@ -61,7 +61,6 @@ const ControlPanelSlice = createSlice({
 					Checkbox: panel.checkbox,
 					Slider: panel.slideSet
 				};
-				console.log(panel.resDisplay);
 			}
 		}
 	}
