@@ -26,7 +26,7 @@ const App = () => {
 			<Grid container spacing={1} className='controlled'>
 				{/* Control Input Samples */}
 				<Grid item xs={6}>
-					<ControlPanel />
+					<ControlPanel index={0} />
 				</Grid>
 				<Grid item xs={6}>
 					{/* <Paper> */}

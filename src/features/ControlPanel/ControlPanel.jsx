@@ -8,25 +8,37 @@ import Typography from "@material-ui/core/Typography";
 import Slider from "@material-ui/core/Slider";
 import Button from "@material-ui/core/Button";
 
-import { setText, toggleSelected } from "../ControlPanel/ControlPanelSlice";
+import {
+	setText,
+	toggleSelected,
+	setSlider
+} from "../ControlPanel/ControlPanelSlice";
 
 import Select from "../../components/Select/Select";
 
 import "../../assets/stylesheets/ControlPanel.css";
 
-export default function ControlPanel() {
-	const [cBox, setChecked] = React.useState(false);
-	const settings = useSelector(state => state.controls);
+export default function ControlPanel({ index }) {
+	const settings = useSelector(store => store.controls[index]);
 	const dispatch = useDispatch();
+	const [cBox, setChecked] = React.useState(false);
+	const [tBox, setString] = React.useState(settings);
+	const [slider, setNum] = React.useState(settings);
 
 	//#region ----- HANDLERS -----
 	const toggleCheck = event => {
 		setChecked(event.target.checked);
-		console.log(settings);
+		dispatch(toggleSelected({ index: index, selected: event.target.checked }));
 	};
 
 	const textChange = event => {
-		dispatch(setText({ newText: event.target.value }));
+		setString(event.target.value);
+		dispatch(setText({ index: index, newText: event.target.value }));
+	};
+
+	const slideChange = (event, newValue) => {
+		setNum(newValue);
+		dispatch(setSlider({ index: index, selected: newValue }));
 	};
 	//#endregion
 
@@ -40,10 +52,10 @@ export default function ControlPanel() {
 				{/* Select */}
 				<Select
 					id='inputOne'
-					options={settings[0].option}
+					options={settings.option}
 					title='Select'
 					label='Select'
-					value={settings[0].optVal}
+					value={settings.optVal}
 					index={0}
 				/>
 				{/* Text Field */}
@@ -61,6 +73,7 @@ export default function ControlPanel() {
 					<Typography>Slider</Typography>
 					<Slider
 						id='slideBar'
+						onChange={slideChange}
 						defaultValue={1}
 						getAriaValueText={slidevalue}
 						aria-labelledby='speedSlider'
@@ -71,7 +84,7 @@ export default function ControlPanel() {
 					/>
 				</div>
 
-				{/* Publish Button */}
+				{/* Simple Publish Button */}
 				<div>
 					<Button id='inputFive' variant='contained'>
 						Publish

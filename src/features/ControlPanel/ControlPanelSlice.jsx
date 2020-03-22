@@ -34,16 +34,26 @@ const ControlPanelSlice = createSlice({
 
 		// toggleSelected
 		toggleSelected(state, action) {
-			const selected = action.payload;
-			const panel = state;
-			if (panel.checkbox) {
+			const { index, selected } = action.payload;
+			const panel = state[index];
+			if (panel) {
 				panel.checkbox = !panel.checkbox;
 			}
-		}
+		},
 
 		// setSlider
+		setSlider(state, action) {
+			const { index, selected } = action.payload;
+			const panel = state[index];
+			if (panel) {
+				panel.slideSet = selected;
+			}
+		},
 
 		// pubClick
+		pubClick(state, action) {
+			//
+		}
 	}
 });
 
